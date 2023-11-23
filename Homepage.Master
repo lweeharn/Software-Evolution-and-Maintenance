@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Homepage.master.cs" Inherits="Assignment.Homepage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>FOCS</title>
+    <link href="CSS/navBar.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/footer.css" type="text/css" rel="stylesheet" />
+    <!-- Link to Google Fonts to load Open Sans -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Include Leaflet.js library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <div class="navbar" style=" display: flex; align-items: center;">
+        <div class="logo" style="margin-right: 20px; margin-top: 20px;">
+            <a href="Index.aspx" style="text-decoration: none;">
+                <img src="../images/TARUMT%20LOGO.png" alt="Logo" style="max-width: 100%; height: auto; margin-left: 0px;" />
+            </a>
+        </div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex;" class="navBarUl">
+            <li style="margin-right: 20px;">
+                <a href="Searching.aspx">Programme</a>
+            </li>
+            <li style="margin-right: 20px;">
+                <a href="assessment.aspx">Qualify</a>
+            </li>
+            <li style="margin-right: 20px;">
+                <a href="Staff.aspx">Staff</a>
+            </li>
+            <li>
+                <a href="FAQ.aspx">FAQ</a>
+            </li>
+        </ul>
+    </div>
+    <div class="background" style="padding: 20px; text-align: left;">
+        <h1>FACULTY OF COMPUTING &<br /> INFORMATION TECHNOLOGY (FOCS)</h1>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="contact-info">
+            <h3>CONTACT US</h3>
+           
+            <address>
+                <p>FACULTY OF COMPUTING AND INFORMATION TECHNOLOGY</p>
+                <p>TUNKU ABDUL RAHMAN UNIVERSITY OF MANAGEMENT AND TECHNOLOGY</p>
+                <p>JALAN GENTING KELANG</p>
+                <p>SETAPAK</p>
+                <p>53300 KUALA LUMPUR</p>
+            </address>
+            <br>
+            <p>TELEPHONE: 603-41450123 Ext no. 3233</p>
+            <p>MOBILE PHONE: 6011-10758554</p>
+            <p>FAX: 603-41423166 / 018 925 1001</p>
+            <p>EMAIL: focs@tarc.edu.my</p>
+            <br>
+            <p>OPENING HOURS</p>
+            <p>8.30am - 5.30pm (Monday - Friday)</p>
+        </div>
+        <div>
+            <h4>MAP TO TAR UMT</h4>
+            <div id="map"></div>
+        </div>
+    </div>
+
+
+
+</body>
+    <!-- <script>
+        let mainNav = document.getElementById("js-menu");
+        let navBarToggle = document.getElementById("js-nav-toggle");
+
+        navBarToggle.addEventListener("click", function () {
+            mainNav.classList.toggle("active");
+    </script>-->
+    
+     <script>
+            var map = L.map('map').setView([3.2004546, 101.7182276], 15);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(map);
+
+            L.marker([3.2004546, 101.7182276]).addTo(map)
+                .bindPopup("Tunku Abdul Rahman University of Management and Technology (TAR UMT)")
+                .on('click', function () {
+                    window.open('https://www.google.com/maps/dir/3.2004546,101.7182276/TARUC,+Jalan+Genting+Kelang,+Setapak,+Kuala+Lumpur,+Federal+Territory+of+Kuala+Lumpur/@3.2077084,101.7125851,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x31cc3843bfb6a031:0x2dc5e067aae3ab84!2m2!1d101.7265571!2d3.2152552?entry=ttu', '_blank');
+                });
+     </script>
+   
+    
+
+</html>
